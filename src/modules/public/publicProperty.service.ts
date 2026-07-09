@@ -102,7 +102,8 @@ const getAllPropertiesDB = async (query: IPropertyQuery) => {
                     password: true
                 }
             },
-            category: true
+            category: true,
+            rentalRequest: true,
         }
     })
 
@@ -132,6 +133,16 @@ const getPropertyByIdDB = async (propertyId: string) => {
     const property = await prisma.property.findUnique({
         where: {
             id: propertyId
+        },
+        include: {
+            landlord: {
+                omit: {
+                    password: true
+                }
+            },
+            rentalRequest: true,
+            category: true,
+
         }
     })
 
