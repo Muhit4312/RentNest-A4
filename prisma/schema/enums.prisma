@@ -3,8 +3,17 @@ enum UserStatus {
     BANNED
 }
 
+
 enum UserRole {
     TENANT
     LANDLORD
     ADMIN
+}
+
+enum RentalStatus{
+    PENDING
+    APPROVED
+    REJECTED
+    ACTIVE
+    COMPLETED
 }

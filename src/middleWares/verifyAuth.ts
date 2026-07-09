@@ -42,6 +42,10 @@ export const verifyAuth = (...requiredRoles : UserRole[]) => {
             throw new Error("User not found!")
         }
 
+        if(user.status !== "ACTIVE"){
+            throw new Error("You are banned.")
+        }
+
         req.user = {
             id, email, name, role
         }

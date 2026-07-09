@@ -10,5 +10,8 @@ model User {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
+    properties Property[]
+    rentalRequest RentalRequest[]
+
     @@map("Users")
 }
