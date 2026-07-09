@@ -1,8 +1,8 @@
 import { UserStatus } from "../../../generated/prisma/enums";
-import { PropertyWhereInput } from "../../../generated/prisma/models";
+import { PropertyWhereInput, RentalRequestWhereInput } from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
 import { IPropertyQuery } from "../public/publicProperty.interface";
-import { IUpdateUserStatus, IUsersQuery } from "./admin.interface";
+import { IRentalsQuery, IUpdateUserStatus, IUsersQuery } from "./admin.interface";
 
 const getAllUsersByAdmin = async (query: IUsersQuery) => {
 
@@ -146,10 +146,83 @@ const getAllPropertiesDB = async (query: IPropertyQuery) => {
 
 }
 
+const getAllRentalsReqDB = async (query: IRentalsQuery) => {
+
+    const limit = query.limit ? Number(query.limit) : 10;
+    const page = query.page ? Number(query.page) : 1;
+    const skip = (page - 1) * limit;
+
+
+
+    const andConditions: RentalRequestWhereInput[] = []
+
+
+    if (query.searchTerm) {
+        andConditions.push({
+            OR: [
+                {
+                    note: {
+                        contains: query.searchTerm,
+                        mode: "insensitive"
+                    }
+                },
+                {
+                    message: {
+                        contains: query.searchTerm,
+                        mode: "insensitive"
+                    }
+                }
+            ]
+        })
+    }
+
+
+
+    const rentals = await prisma.rentalRequest.findMany({
+        where: {
+            AND: andConditions
+        },
+        take: limit,
+        skip: skip,
+        orderBy: {
+            updatedAt: "desc"
+        },
+        include: {
+            tenant: {
+                omit: {
+                    password: true
+                }
+            },
+            property: true
+            
+        }
+    })
+
+    const totalPropertiesCount = await prisma.rentalRequest.count({
+        where: {
+            AND: andConditions
+        }
+    })
+
+    return {
+        data: rentals,
+        meta: {
+            page,
+            limit,
+            total: totalPropertiesCount,
+            totalPage: Math.ceil(totalPropertiesCount / limit)
+
+        }
+    }
+
+
+}
+
 
 
 export const adminServices = {
     getAllUsersByAdmin,
     updateUserStatusDB,
-    getAllPropertiesDB
+    getAllPropertiesDB,
+    getAllRentalsReqDB
 }

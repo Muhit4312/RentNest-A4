@@ -1,5 +1,5 @@
 import { UserStatus } from "../../../generated/prisma/enums";
-import { UserWhereInput } from "../../../generated/prisma/models";
+import { RentalRequestWhereInput, UserWhereInput } from "../../../generated/prisma/models";
 
 export interface IUsersQuery extends UserWhereInput {
     limit?: string
@@ -8,4 +8,10 @@ export interface IUsersQuery extends UserWhereInput {
 
 export interface IUpdateUserStatus {
     status: UserStatus;
+}
+
+export interface IRentalsQuery extends RentalRequestWhereInput {
+    limit?: string,
+    page?: string,
+    searchTerm? : string
 }
