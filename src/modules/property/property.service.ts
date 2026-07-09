@@ -77,6 +77,36 @@ const deltedPropertyDB = async (userId: string, propertyId: string) => {
 
 }
 
+const getLandLordPropertyReqDB = async (landlordId: string) => {
+
+    const requests = await prisma.rentalRequest.findMany({
+        where: {
+            property: {
+                landlordId
+            }
+        },
+        include: {
+            tenant: {
+                omit: {
+                    password: true
+                }
+            },
+            property: {
+                include: {
+                    category: true
+                }
+            },
+            //payment: true
+        },
+        orderBy: {
+            createdAt: "desc"
+        }
+    })
+
+    return requests
+
+}
+
 
 
 
@@ -84,5 +114,6 @@ export const propertyServices = {
     createPropertyDB,
     updatedPropertyDB,
     deltedPropertyDB,
+    getLandLordPropertyReqDB
 
 }
