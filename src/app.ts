@@ -7,6 +7,7 @@ import { categoryRoutes } from "./modules/category/category.route";
 import { propertyRoutes } from "./modules/property/property.route";
 import { publicProperyRoutes } from "./modules/public/publicPropery.route";
 import { rentalsRoutes } from "./modules/rentalRequest/rentals.route";
+import { adminRoutes } from "./modules/admin/admin.route";
 
 const app: Application = express()
 
@@ -28,6 +29,7 @@ app.use("/api/categories", categoryRoutes)
 app.use("/api/landlord", propertyRoutes)
 app.use("/api/properties", publicProperyRoutes)
 app.use("/api/rentals", rentalsRoutes)
+app.use("/api/admin", adminRoutes)
 
 
 
