@@ -100,19 +100,19 @@ const confirmPaymentDB = async (payload: Buffer, signature: string) => {
         config.stripe_webhook_secret
     );
 
-    switch(event.type){
+    switch (event.type) {
 
-    case "checkout.session.completed":
+        case "checkout.session.completed":
 
-        await handleCheckoutCompleted(event.data.object);
+            await handleCheckoutCompleted(event.data.object);
 
-        break;
+            break;
 
-    default:
+        default:
 
-        console.log(event.type);
+            console.log(event.type);
 
-}
+    }
 }
 
 const getMyPaymentsDB = async (tenantId: string) => {
@@ -141,9 +141,38 @@ const getMyPaymentsDB = async (tenantId: string) => {
 
 }
 
+
+const getPaymentByIdDB = async (paymentId: string,tenantId: string) => {
+
+    const payment = await prisma.payment.findUniqueOrThrow({
+        where: {
+            id: paymentId
+        },
+        include: {
+            rentalRequest: {
+                include: {
+                    property: {
+                        include: {
+                            category: true
+                        }
+                    }
+                }
+            }
+        }
+    })
+
+    if (payment.tenantId !== tenantId) {
+        throw new Error("Unauthorized access.");
+    }
+
+    return payment;
+
+}
+
 export const paymentService = {
     createPaymentSession,
     confirmPaymentDB,
-    getMyPaymentsDB
+    getMyPaymentsDB,
+    getPaymentByIdDB
 
 }

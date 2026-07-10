@@ -21,17 +21,17 @@ const createPayment = catchAsync(async (req: Request, res: Response, next: NextF
 })
 
 const confirmPayment = catchAsync(
-    async( req : Request, res : Response, next : NextFunction) => {
+    async (req: Request, res: Response, next: NextFunction) => {
         const event = req.body as Buffer;
         const signature = req.headers['stripe-signature']!;
 
         await paymentService.confirmPaymentDB(event, signature as string)
 
         sendResponse(res, {
-            success : true,
-            statusCode : 200,
-            message : "Webhook triggered successfully",
-            data : null
+            success: true,
+            statusCode: 200,
+            message: "Webhook triggered successfully",
+            data: null
         })
     }
 )
@@ -51,10 +51,27 @@ const getMyPayments = catchAsync(async (req, res) => {
 
 })
 
+const getPaymentById = catchAsync(async (req, res) => {
+
+    const paymentId = req.params.id;
+    const tenantId = req.user!.id;
+
+    const result = await paymentService.getPaymentByIdDB(paymentId as string,tenantId)
+
+    sendResponse(res, {
+        success: true,
+        statusCode: httpStatus.OK,
+        message: "Payment retrieved successfully",
+        data: result
+    });
+
+})
+
 
 
 export const paymentController = {
     createPayment,
     confirmPayment,
-    getMyPayments
+    getMyPayments,
+    getPaymentById
 }

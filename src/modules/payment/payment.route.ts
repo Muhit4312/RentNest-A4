@@ -20,6 +20,12 @@ router.get(
     "/",
     verifyAuth(UserRole.TENANT),
     paymentController.getMyPayments
-);
+)
+
+router.get(
+    "/:id",
+    verifyAuth(UserRole.TENANT),
+    paymentController.getPaymentById
+)
 
 export const paymentRoutes = router
