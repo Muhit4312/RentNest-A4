@@ -1,6 +1,7 @@
+import { RentalStatus } from "../../../generated/prisma/enums"
 import { PropertyWhereInput } from "../../../generated/prisma/models"
 import { prisma } from "../../lib/prisma"
-import { IPropertyPayload, IUpdatePropertyPayload } from "./property.interface"
+import { IPropertyPayload, IRentalReqStatus, IUpdatePropertyPayload } from "./property.interface"
 
 const createPropertyDB = async (payload: IPropertyPayload, userId: string) => {
 
@@ -107,6 +108,43 @@ const getLandLordPropertyReqDB = async (landlordId: string) => {
 
 }
 
+const updateRequestStatusByLandlord = async (payload: IRentalReqStatus, rentalId: string, landlordId: string) => {
+
+    const rental = await prisma.rentalRequest.findUnique({
+        where: {
+            id: rentalId
+        },
+        include: {
+            property: true
+        }
+    });
+
+    if (!rental) {
+        throw new Error("Rental request not found.");
+    }
+
+    if (rental.property.landlordId !== landlordId) {
+        throw new Error("You are not authorized.");
+    }
+
+    if (rental.status !== RentalStatus.PENDING) {
+        throw new Error("Rental request already processed.");
+    }
+
+    const updatedRental = await prisma.rentalRequest.update({
+        where: {
+            id: rentalId
+        },
+        data: {
+            status: payload.status
+        }
+    });
+
+    return updatedRental;
+
+
+}
+
 
 
 
@@ -114,6 +152,7 @@ export const propertyServices = {
     createPropertyDB,
     updatedPropertyDB,
     deltedPropertyDB,
-    getLandLordPropertyReqDB
+    getLandLordPropertyReqDB,
+    updateRequestStatusByLandlord,
 
 }

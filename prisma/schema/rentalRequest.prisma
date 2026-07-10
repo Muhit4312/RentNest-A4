@@ -5,10 +5,14 @@ model RentalRequest {
     message    String?
 
     propertyId String
-    property   Property @relation(fields: [propertyId], references: [id])
+    property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
 
     tenantId String
-    tenant   User   @relation(fields: [tenantId], references: [id])
+    tenant   User   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+    payment Payment?
+
+
 
     status RentalStatus @default(PENDING)
 

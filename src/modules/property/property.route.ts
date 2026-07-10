@@ -9,6 +9,7 @@ router.post("/properties",verifyAuth(UserRole.LANDLORD), properyController.creat
 router.put("/properties/:id",verifyAuth(UserRole.LANDLORD), properyController.updateProperty)   
 router.delete("/properties/:id",verifyAuth(UserRole.LANDLORD), properyController.deleteProperty)
 router.get("/requests",verifyAuth(UserRole.LANDLORD), properyController.getLandLordPropertyReq)
+router.patch("/requests/:id",verifyAuth(UserRole.LANDLORD), properyController.updateRequestStatusByLandlord)
 
 
 

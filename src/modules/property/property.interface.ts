@@ -1,3 +1,4 @@
+import { RentalStatus } from "../../../generated/prisma/enums";
 
 export interface IPropertyPayload {
   title: string;
@@ -23,5 +24,10 @@ export interface IUpdatePropertyPayload {
 
   images?: string[];
   isAvailable?: boolean;
+}
+
+
+export interface IRentalReqStatus{
+  status: RentalStatus
 }
 
