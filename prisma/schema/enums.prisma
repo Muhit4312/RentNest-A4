@@ -18,8 +18,14 @@ enum RentalStatus{
     COMPLETED
 }
 
-enum PaymentStatus{
-    ACTIVE
-    CANCELED
-    EXPIRED
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum PaymentProvider {
+  STRIPE
+  SSLCOMMERZ
 }

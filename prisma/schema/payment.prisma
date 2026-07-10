@@ -1,19 +1,25 @@
 model Payment {
-    id String @id @default(uuid())
 
-    rentalRequestId String        @unique
-    rentalRequest   RentalRequest @relation(fields: [rentalRequestId], references: [id])
+  id String @id @default(uuid())
 
-    tenantId String @unique
-    tenant   User   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rentalRequestId String @unique
+  rentalRequest RentalRequest @relation(fields: [rentalRequestId], references: [id])
 
-    transactionId String @unique
+  tenantId String
+  tenant User @relation(fields: [tenantId], references: [id])
 
-    status PaymentStatus @default(ACTIVE)
-    currentPeriodEnd DateTime
+  transactionId String @unique
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  amount Decimal @db.Decimal(10,2)
 
-    @@map("payments")
+  provider PaymentProvider
+
+  status PaymentStatus @default(PENDING)
+
+  paidAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("payments")
 }
