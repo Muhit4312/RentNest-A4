@@ -46,7 +46,7 @@ const deleteProperty = catchAsync(async (req: Request, res: Response, next: Next
     sendResponse(res, {
         success: true,
         statusCode: httpStatus.OK,
-        message: "Category deleted successfully",
+        message: "Property deleted successfully",
         data: null
     })
 
