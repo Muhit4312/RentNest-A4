@@ -17,7 +17,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"name\": \"Sajib\",\r\n  \"email\": \"sajib@gmail.com\",\r\n  \"password\": \"password1234\"\r\n\r\n}",
+              "raw": "{\r\n  \"name\": \"Banned User\",\r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"password1234\"\r\n\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -68,7 +68,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"muhitahmed@gmail.com\",\r\n    \"password\": \"password1234\"\r\n}",
+              "raw": "{\r\n    \"email\": \"sajib@gmail.com\",\r\n    \"password\": \"password1234\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -124,7 +124,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"House\"\r\n}",
+              "raw": "{\r\n    \"name\": \"Apartment\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -158,7 +158,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"title\": \"2 Units House\",\r\n    \"description\": \"Fully furnished\",\r\n    \"location\": \"Dhaka\",\r\n    \"rent\": 250000,\r\n    \"categoryId\": \"f0ce7584-55c1-47c7-91dc-aeba23cf1734\",\r\n    \"bedrooms\": 2,\r\n    \"bathrooms\": 2\r\n}",
+              "raw": "{\r\n    \"title\": \"house\",\r\n    \"description\": \"Fully building\",\r\n    \"location\": \"Dhaka\",\r\n    \"rent\": 130000,\r\n    \"categoryId\": \"fe01155c-742a-4768-b141-85cb6a805582\",\r\n    \"bedrooms\": 7,\r\n    \"bathrooms\": 5\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -209,7 +209,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"title\": \"Luxury Apartment\",\r\n  \"bedrooms\": 3\r\n}",
+              "raw": "{\r\n  \"title\": \"Luxury Apartment\",\r\n  \"bedrooms\": 5\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -217,7 +217,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/landlord/properties/d487f06c-d78a-430c-81e3-474f5a1e1462",
+              "raw": "http://localhost:5000/api/landlord/properties/af963bf1-5815-40ab-bbc0-eb133c4dde35",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -227,7 +227,7 @@
                 "api",
                 "landlord",
                 "properties",
-                "d487f06c-d78a-430c-81e3-474f5a1e1462"
+                "af963bf1-5815-40ab-bbc0-eb133c4dde35"
               ]
             }
           },
@@ -239,7 +239,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:5000/api/landlord/properties/d487f06c-d78a-430c-81e3-474f5a1e1462",
+              "raw": "http://localhost:5000/api/landlord/properties/5fc7b50d-1808-4da9-ac35-33aab88697f5",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -249,7 +249,7 @@
                 "api",
                 "landlord",
                 "properties",
-                "d487f06c-d78a-430c-81e3-474f5a1e1462"
+                "5fc7b50d-1808-4da9-ac35-33aab88697f5"
               ]
             }
           },
@@ -270,7 +270,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/landlord/requests/11520ab5-c184-496f-853e-a7a102f84a20",
+              "raw": "http://localhost:5000/api/landlord/requests/932af203-e49a-4763-bd5e-b5c3eae2386a",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -280,7 +280,7 @@
                 "api",
                 "landlord",
                 "requests",
-                "11520ab5-c184-496f-853e-a7a102f84a20"
+                "932af203-e49a-4763-bd5e-b5c3eae2386a"
               ]
             }
           },
@@ -297,7 +297,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5000/api/properties/47c61983-d243-434f-9ea0-63f84aad4ac6",
+              "raw": "http://localhost:5000/api/properties/af963bf1-5815-40ab-bbc0-eb133c4dde35",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -306,7 +306,7 @@
               "path": [
                 "api",
                 "properties",
-                "47c61983-d243-434f-9ea0-63f84aad4ac6"
+                "af963bf1-5815-40ab-bbc0-eb133c4dde35"
               ]
             }
           },
@@ -377,7 +377,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"propertyId\": \"cb7cacc4-eaad-45c3-81af-838a32b19528\",\r\n  \"note\":\"I am rakibul hasan\",\r\n  \"moveInDate\": \"2026-12-1\",\r\n  \"message\": \"I want to move in with my family.\"\r\n}",
+              "raw": "{\r\n  \"propertyId\": \"0e43c06d-ff62-4223-987b-116dbbc375cb\",\r\n  \"note\":\"I am shofik hasan\",\r\n  \"moveInDate\": \"2026-12-1\",\r\n  \"message\": \"I want this emergency.\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -425,7 +425,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5000/api/rentals/5a0f6ec9-e1c2-4665-b2ac-36927797dc88",
+              "raw": "http://localhost:5000/api/rentals/932af203-e49a-4763-bd5e-b5c3eae2386a",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -434,7 +434,7 @@
               "path": [
                 "api",
                 "rentals",
-                "5a0f6ec9-e1c2-4665-b2ac-36927797dc88"
+                "932af203-e49a-4763-bd5e-b5c3eae2386a"
               ]
             }
           },
@@ -502,7 +502,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/admin/users/a78556b8-a500-49a8-aa95-003cf0bf2165",
+              "raw": "http://localhost:5000/api/admin/users/0034f6a2-2b36-4ab0-adb7-48e37ccef62b",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -512,7 +512,7 @@
                 "api",
                 "admin",
                 "users",
-                "a78556b8-a500-49a8-aa95-003cf0bf2165"
+                "0034f6a2-2b36-4ab0-adb7-48e37ccef62b"
               ]
             }
           },
@@ -587,7 +587,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"rentalRequestId\": \"11520ab5-c184-496f-853e-a7a102f84a20\"\r\n}",
+              "raw": "{\r\n    \"rentalRequestId\": \"932af203-e49a-4763-bd5e-b5c3eae2386a\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -636,7 +636,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5000/api/payments/bb00aea9-80f8-43bd-820f-f41990b4195f",
+              "raw": "http://localhost:5000/api/payments/1a4580b2-df34-4c8b-8bd5-71968fa5fd1b",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -645,7 +645,7 @@
               "path": [
                 "api",
                 "payments",
-                "bb00aea9-80f8-43bd-820f-f41990b4195f"
+                "1a4580b2-df34-4c8b-8bd5-71968fa5fd1b"
               ]
             }
           },
@@ -659,8 +659,29 @@
         {
           "name": "New Request",
           "request": {
-            "method": "GET",
-            "header": []
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"propertyId\": \"af963bf1-5815-40ab-bbc0-eb133c4dde35\",\r\n    \"rating\": 5,\r\n    \"comment\": \"Excellent property. Very clean and comfortable.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/reviews",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "reviews"
+              ]
+            }
           },
           "response": []
         }
