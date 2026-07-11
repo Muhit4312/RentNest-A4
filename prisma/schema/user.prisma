@@ -13,6 +13,7 @@ model User {
     payment Payment[]
     properties Property[]
     rentalRequest RentalRequest[]
+    reviews Review[]
 
     @@map("Users")
 }

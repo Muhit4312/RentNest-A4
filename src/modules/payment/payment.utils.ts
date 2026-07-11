@@ -60,7 +60,7 @@ export const handleCheckoutCompleted = async (session: Stripe.Checkout.Session) 
             },
 
             data: {
-                status: "ACTIVE"
+                status: "COMPLETED"
             }
 
         });

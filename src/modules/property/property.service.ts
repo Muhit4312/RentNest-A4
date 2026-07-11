@@ -126,6 +126,7 @@ const updateRequestStatusByLandlord = async (payload: IRentalReqStatus, rentalId
     if (rental.property.landlordId !== landlordId) {
         throw new Error("You are not authorized.");
     }
+    console.log(rental.status)
 
     if (rental.status !== RentalStatus.PENDING) {
         throw new Error("Rental request already processed.");

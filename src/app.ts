@@ -9,6 +9,7 @@ import { publicProperyRoutes } from "./modules/public/publicPropery.route";
 import { rentalsRoutes } from "./modules/rentalRequest/rentals.route";
 import { adminRoutes } from "./modules/admin/admin.route";
 import { paymentRoutes } from "./modules/payment/payment.route";
+import { reviewRoutes } from "./modules/review/review.route";
 
 const app: Application = express()
 
@@ -40,6 +41,7 @@ app.use("/api/properties", publicProperyRoutes)
 app.use("/api/rentals", rentalsRoutes)
 app.use("/api/admin", adminRoutes)
 app.use("/api/payments", paymentRoutes)
+app.use("/api/reviews", reviewRoutes)
 
 
 
